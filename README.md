@@ -2,6 +2,9 @@
 
 # NoteTree · Grow a knowledge tree as you learn
 
+> **Author & maintainer:** [daliu858](https://github.com/daliu858) — design, product decisions, review.
+> Development used AI pair programming; those commits are co-authored with Claude, as the contributor list reflects.
+
 An ultra-lightweight learning scratchpad that links new knowledge to what you
 already know — the moment you learn something new, hang it onto your existing
 knowledge with the smallest possible gesture. Select an old topic, hit
