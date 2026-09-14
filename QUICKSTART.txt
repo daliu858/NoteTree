@@ -1,0 +1,48 @@
+NoteTree quick start (1 minute)
+==========================
+
+What this is: an ultra-lightweight learning scratchpad. The moment
+you learn something new, hang it onto the knowledge you already
+have -- the tree grows with your learning, node by node. The tree
+is one HTML file: nothing to install, no account, all data in your
+own hands. Fully offline by default; only the optional AI mounting,
+if you enable it yourself and confirm each step, ever goes online
+(see README).
+
+Getting started
+--------------------------------
+Double-click NoteTree.html. That's all -- there is no install step.
+
+- Lay a base: skim your old notes and hang the memorable topics
+  (select a node -> "+ Child card" -> type a name);
+- Daily: hang new things as you learn them; double-click a title
+  to rename, drag a node to re-mount it, click a card to write a
+  short summary, Ctrl+Z to undo;
+- Save: click "Save new version" and the browser downloads a new
+  file -- that's your latest version; the old file is naturally a
+  backup. Saved trees carry your notes and are strictly private --
+  send them to no one. If a classmate wants the tool, send the
+  original empty NoteTree.html and let them grow their own tree.
+
+Phone / tablet
+--------------------------------
+Send the tree file to the device:
+- Windows / Mac: double-click to open;
+- Android: open with Chrome or Edge;
+- iPad / iPhone: opening inside a chat app shows a white preview --
+  that's system behaviour, the file is fine. Install the free
+  Documents by Readdle as the tree's home: receive the file ->
+  share sheet -> "Save to Documents"; from then on you open, edit,
+  save and share from that one app.
+
+Version updates
+--------------------------------
+When you get a newer NoteTree.html: open the new version ->
+"Import / Export" -> import your old tree file. Migration done.
+
+Must read
+--------------------------------
+Read "Rules of use" in README.md before using. The one-line
+summary: write summaries in your own words -- never paste mark
+schemes, exam papers or textbook text; tree files are private,
+do not pass them around.

@@ -1,158 +1,223 @@
-# NoteTree · 让知识树跟着你的学习长大
+![NoteTree](assets/logo.png)
 
-Grow a knowledge tree as you learn — an ultra-lightweight scratchpad that links
-new knowledge to what you already know.
+# NoteTree · Grow a knowledge tree as you learn
 
-**超轻量学习随记工具**:不承载重型笔记,只做一件事——你学到新东西的那一刻,用最小
-的动作把它挂到已有的知识上。选中一个旧知识点,「＋子卡」写下新学的 topic,双击改名、
-点卡写简述;树就跟着你的学习一节一节长出来。
+An ultra-lightweight learning scratchpad that links new knowledge to what you
+already know — the moment you learn something new, hang it onto your existing
+knowledge with the smallest possible gesture. Select an old topic, hit
+**+ Child card**, type the new one; double-click to rename, click a card to jot
+a short summary. The tree grows with your learning, one node at a time.
 
-树是新旧知识之间**链接的地图**,不是笔记库:每张卡轻到只有标题和几句简述,
-系统性的整理归你的正式笔记管;这里只负责让"我刚学的"和"我已会的"当场连上线。
-面向一切学习方向,不绑任何考试局;空树起步,随学随长。
+The tree is a **map of links** between old and new knowledge, not a note
+archive: every card is deliberately tiny — a title and a few lines. Systematic
+notes belong in your real notebook; this tool only makes sure "what I just
+learned" and "what I already know" get connected on the spot. It is
+subject-agnostic and not tied to any exam board; start from an empty tree and
+grow it as you go.
 
-树是**一个 120 KB 的单文件 HTML**:不装任何软件、不注册任何账号,**双击秒开**——
-没有启动等待,没有弹窗;换设备就把文件发给自己,微信传到手机、iPad,打开就是
-完整的树。离线可用、默认不联网;节点可折叠(收起暂时不需要的知识)、可编辑、
-删除、摘卡导出;界面中英文一键切换。
+The whole tool is **a single ~120 KB HTML file**: no installation, no account,
+**double-click and it opens instantly** — no loading screen, no pop-ups. To
+move devices, just send the file to yourself; open it on a phone or iPad and
+the full tree is there. Works offline; makes no network requests by default.
+Nodes can be collapsed (fold away what you don't need right now), edited,
+deleted, and picked into a basket for export. The UI switches between English
+and Chinese with one click.
 
-**工具开源(MIT);你生成的树是你的私人文件。** 默认形态下,本工具不发送、不接收
-任何数据——一切都在你的设备本地。(若你自行启用下文的 AI 挂载,数据流向见该节
-说明。)
+**The tool is open source (MIT); the trees you generate are your private
+files.** In its default form this tool sends and receives no data — everything
+stays on your device. (If you enable the optional AI mounting described below,
+see that section for the exact data flow.)
 
-## 快速开始
+## Quick start
 
-**没有安装这一步。** 把 `NoteTree.html` 放进你喜欢的文件夹,**双击打开**,开始用:
+**There is no install step.** Put `NoteTree.html` in any folder you like,
+**double-click it**, and start:
 
-1. **铺个底**:打开你自己的旧笔记(比如 IG 升 AS/IB、AS 升 A2 交界处的那本),
-   简单纵览一遍,把印象深刻的 topic 挂上去——选中节点 →「**＋子卡**」→ 写名字。
-   不需要特别全,以后随学随补。
-2. **日常**:学到新东西,选中它所属的旧知识点「＋子卡」写上;双击标题改名、
-   拖动节点换挂载位置、点卡片写简述、Ctrl+Z 撤销。每天几十秒。
-3. **保存与带走**:点「**保存新版本**」,浏览器会下载一个新文件——那就是你的
-   最新版本,旧文件天然是备份。导出的 HTML 跨端通用(见下文「三端支持」)。
-   保存出的每一份树都带着你的笔记,**是你绝对私有的文件,不要发给任何人**;
-   想让同学也用,把原始空树 `NoteTree.html` 发给 TA,让 TA 长自己的树。
+1. **Lay a base.** Skim your old notes (say, the notebook from the IG→AS or
+   AS→A2 transition) and hang the topics that left an impression: select a
+   node → **+ Child card** → type a name. It doesn't need to be complete —
+   you'll fill it in as you learn.
+2. **Daily use.** Learned something new? Select the old topic it belongs to
+   and add a child card. Double-click a title to rename, drag a node to
+   re-mount it elsewhere, click a card to write a short summary, Ctrl+Z to
+   undo. A few dozen seconds a day.
+3. **Save and carry.** Click **Save new version** — the browser downloads a
+   new file, which is now your latest version; the old file is naturally your
+   backup. The exported HTML runs on every platform (see below). Every saved
+   tree carries your notes and **is strictly your private file — do not send
+   it to anyone**. If a classmate wants the tool, send them the original empty
+   `NoteTree.html` and let them grow their own tree.
 
-想先看看长成的树什么样?打开 `sample/` 里的示例知识树。
-以后拿到新版 `NoteTree.html`(功能更新):打开新版 →「导入 / 导出」→ 导入你的
-旧树文件,数据即迁移完成。
+Want to see what a grown tree looks like? Open the sample tree in `sample/`.
+When you receive a newer `NoteTree.html` (feature update): open the new
+version → **Import / Export** → import your old tree file — migration done.
 
-## 三端支持
+## Platform support
 
-| 设备 | 怎么用 |
+| Device | How |
 |---|---|
-| **Windows / macOS** | 双击 `NoteTree.html`(或你保存出的任何一版树文件) |
-| **iPad / iPhone** | 微信里直接点开树文件只会是**静态白屏预览**——iOS 的文件预览器一律不运行网页脚本,Safari 也不允许打开本地网页文件,这是系统行为,文件本身没坏。**做法**:装免费的 Documents by Readdle,微信里收到树文件 → 分享面板 →「保存到 Documents」;之后打开、编辑、保存、发微信都在 Documents 这一个 app 里点一下完成。触屏:单指拖动、双指捏合缩放、长按节点拖动换挂载位置、双击标题就地改名。GoodNotes / Notability 会把它当死文档,别用它们开。 |
-| **Android 手机/平板** | 树 HTML 发到设备上,在「文件」里点开选 **Chrome / Edge**。触屏操作与 iPad 相同。 |
+| **Windows / macOS** | Double-click `NoteTree.html` (or any tree file you saved) |
+| **iPad / iPhone** | Opening the tree file directly inside a chat app shows a **static white preview** — iOS file previews never run web scripts, and Safari won't open local web files; that's system behaviour, the file is fine. **Do this instead:** install the free *Documents by Readdle*; when you receive a tree file, use the share sheet → "Save to Documents"; from then on you open, edit, save, and share from that one app. Touch: one-finger pan, two-finger pinch zoom, long-press a node to drag-remount, double-tap a title to rename in place. GoodNotes / Notability treat it as a dead document — don't open it with those. |
+| **Android phone / tablet** | Send the tree HTML to the device and open it from Files with **Chrome / Edge**. Touch gestures are the same as iPad. |
 
-手机平板上是同一份文件、同样的功能;新旧版本迁移用「导入 / 导出」。
+It's the same file with the same features on phone and tablet; migrate between
+versions with **Import / Export**.
 
-## 使用规范
+## Rules of use
 
-### 你的树文件
+### Your tree files
 
-1. 你生成的树是**你的私人学习文件**:不要上传到公开或半公开渠道(网盘公开链接、群聊、
-   论坛、社交媒体)。想给别人看树?让对方长自己的树。
-2. **简述及一切可编辑字段只写你自己的话;禁止粘贴评分方案、试卷、教材原文**
-   (工具会对可疑粘贴弹提醒,但责任在你)。
-3. 禁止把树内内容整理成题库或资料对外分发,或以任何方式标称/暗示其为真题、
-   官方内容。
-4. 卡篮导出的 .txt、「导出 JSON」的数据文件与主文件受同一套规范约束。
-5. 风险提示:在正在进行的考试、受控测评或禁止使用电子工具的场合使用任何电子
-   工具(包括本工具)均属考务违规。
+1. Trees you generate are **your private study files**: do not upload them to
+   public or semi-public channels (public cloud links, group chats, forums,
+   social media). Want to show someone the idea? Let them grow their own tree.
+2. **Write summaries and every editable field in your own words; pasting mark
+   schemes, exam papers, or textbook text verbatim is prohibited.** (The tool
+   pops a reminder on suspicious pastes, but the responsibility is yours.)
+3. Do not compile tree content into question banks or hand-out material for
+   distribution, or label/imply it as authentic exam or official content.
+4. Basket-exported `.txt` files and **Export JSON** data files are bound by
+   the same rules as the main file.
+5. Risk note: using any electronic tool (including this one) in an ongoing
+   exam, controlled assessment, or any setting that forbids electronic tools
+   is an exam-conduct violation.
 
-### 免责与声明
+### Disclaimers
 
-6. 本工具为个人开源项目,按"现状"提供,不承诺支持;与任何考试机构、课程平台无关联、
-   未获认可(提及 IGCSE/CAIE 等名称仅为指明适用场景)。
-7. 在法律允许的范围内,使用者对其输入内容及对输出文件的一切使用自行负责;违反
-   上述规范产生的版权或考务后果,在法律允许的范围内由使用者本人承担。
-8. 对由维护者控制的分发物中的被投诉材料,将在合理核验后删除或更正(反馈与投诉:
-   **LearningNoteTree@protonmail.com**,或通过你拿到这份文件的分发渠道);维护者
-   无法控制已被他人复制的代码或用户本地文件。
+6. This is a personal open-source project provided "as is", with no promise of
+   support; it is not affiliated with or endorsed by any exam board or course
+   platform (names like IGCSE/CAIE are mentioned only to indicate applicable
+   contexts).
+7. To the extent permitted by law, users are responsible for what they input
+   and for every use of the output files; copyright or exam-conduct
+   consequences of violating the rules above rest with the user.
+8. Complained-of material in distributions controlled by the maintainer will
+   be removed or corrected after reasonable verification (feedback &
+   complaints: **LearningNoteTree@protonmail.com**, or via whichever channel
+   you got this file from); the maintainer cannot control code already copied
+   by others or users' local files.
 
-## 内置的保护机制
+## Built-in protections
 
-- **纯本地**:默认不联网、不发送任何数据;树文件、导出物全部只在你的设备上。
-- **粘贴提醒**:各编辑框对疑似官方材料/评分方案措辞的粘贴弹出提醒(这是提醒,
-  不是保证——不粘贴官方材料的责任始终在使用者)。
-- **页脚烧录声明**:生成的 HTML 与卡篮导出物都带"私人文件 · 请勿传播"声明,
-  是否含 AI 内容按实际情况标注。
-- **备份天然存在**:「保存新版本」总是生成新文件,旧文件即备份。
+- **Local-only by default**: no network requests, no data sent; tree files and
+  exports live solely on your device.
+- **Paste reminders**: edit boxes warn on pastes that look like official
+  material or mark-scheme wording (a reminder, not a guarantee — not pasting
+  official material is always the user's responsibility).
+- **Burned-in footer notice**: generated HTML and basket exports carry a
+  "private file · do not distribute" notice, and are labelled for AI content
+  when applicable.
+- **Backups exist by construction**: **Save new version** always writes a new
+  file, so the previous file is your backup.
 
-## AI 挂载(可选功能,默认关闭)
+## AI mounting (optional, off by default)
 
-这是一项默认关闭的可选功能,需要使用者自己已经持有 Kimi(Moonshot)开放平台
-或智谱 GLM 开放平台的 API key 才能运行。未满 18 岁的使用者:是否开通、注册与费用等一切账号事项,请交给监护人决定
-和操作。本项目不提供 key、不代办或指导注册,也不建议任何人为了这个功能去开
-账号或充值;平台侧的注册、费用与账号事项由使用者(或其监护人)自行负责,使用时
-受 [Kimi 模型使用协议](https://login.moonshot.cn/user/argeement/modeluse)及该平台
-其他适用协议约束(链接地址以官方现行页面为准,2026-09 核验可达;"argeement" 为
-官方页面的原始拼写);选用智谱 GLM 时,受智谱开放平台的相应协议约束。
-没有 key 不影响其他任何功能。
+This is an optional feature, **disabled by default**, which only runs if you
+already hold an API key for the Kimi (Moonshot) open platform or the Zhipu GLM
+open platform. **Users under 18:** all account matters — whether to sign up,
+registration, and costs — belong to your guardian to decide and operate. This
+project does not provide keys, does not register accounts for you or walk you
+through it, and does not recommend that anyone open an account or top up for
+this feature. Platform-side registration, fees, and account matters are the
+responsibility of the user (or their guardian); use is governed by the
+[Kimi model-use agreement](https://login.moonshot.cn/user/argeement/modeluse)
+and the platform's other applicable terms (link per the official live page,
+reachable as of 2026-09; "argeement" is the official page's original
+spelling), or by the Zhipu open platform's corresponding terms if you choose
+GLM. Having no key does not affect any other feature.
 
-功能本身:启用后顶栏出现「**AI 挂载**」——输入一句对知识点的描述,AI 识别概念、
-给出卡片和建议的挂载位置,你预览、纠正、批准后才真正挂上树;保存时也可以让 AI
-起文件名。
+The feature itself: once enabled, an **AI mount** button appears in the top
+bar — you type one sentence describing a concept; the AI identifies it,
+proposes cards and a mounting position; nothing touches the tree until you
+preview, correct, and approve. Saving can also ask the AI to suggest a file
+name.
 
-- **启用方法**:打开「关于 / 声明」,勾选「启用 AI 挂载」即出现入口
-  (开关随树文件保存);首次使用会有一次知情确认。
-- **服务商与配置**:支持两家服务商的 key,二选一——Kimi(Moonshot,默认)或
-  智谱 GLM;模型为 kimi-k3 与 glm-5.3 系列,不支持自定义接口地址。仅支持这
-  两家,换成其他平台的 API 不会正常工作。配置在浏览器控制台完成,具体步骤见
-  工具内「关于 / 声明」→「配置说明」(key 只存本机浏览器,不进树文件)。
-- **数据流向**:启用后,发送给 Kimi 开放平台(Moonshot AI)的内容为:你在挂载框里
-  写的话、树名、当前选中节点的标题与 id、全树节点标题目录(最多 400 条,供 AI 选
-  挂载位置);「AI 起名保存」会发送树名与最近几张卡的标题。卡片简述正文与你的文件
-  一律不发送。请求由你的浏览器**直连** api.moonshot.cn,本项目没有服务器、不中转、
-  不留存、看不到任何请求;底层模型与 API 服务由 Moonshot 提供,本项目仅为本地
-  客户端界面(相关法规下的角色认定以监管解释为准;数据留存与训练使用以该平台
-  政策为准)。树名与节点标题会随请求发出——**不要在里面写真名、学校等个人信息,
-  更不要写自己或他人的敏感个人信息**。
-- **输入禁令(启用前请读完)**:请不要输入任何未正式公开的考试材料的任何内容
-  (这是考务级红线,后果可及成绩);请不要输入官方考试材料的原文或片段(试卷、
-  评分方案、考纲文本、examiner report、insert、听力稿);违规可能会导致 AI 功能
-  无法正常使用;也请不要输入教材、教辅及他人所写笔记的摘录。受平台条款、学校政策
-  或保密约定限制的材料,即使你有权阅读,也不等于有权提交给第三方 AI——内容一旦
-  发送即到达第三方平台,请在发送前自行确认。用于需要申报 AI 使用的评估任务
-  (如 coursework)时,按学校与考试局要求申报。
-- **AI 产出规则**:AI 生成的卡片在界面、复制与导出中均带来源标注,与你写的内容
-  区隔;发现 AI 产出与官方材料文字雷同时,删卡或重新生成,不保留;
-  禁止将 AI 产出用于商业用途或对外分发。AI 内容可能不准确,其来源与权利状态未经
-  独立核验,仅为学习提示;其使用范围受适用法律及模型服务商条款约束,本项目不保证
-  AI 输出具有独占权或不涉及第三方权利。
-- **key 的存放**:key 只存本机浏览器,不进保存的树文件;可选的"跨端携带"会把
-  口令加密(PBKDF2 + AES-GCM)后的密文写进树文件,口令(至少 10 位)是唯一防线,
-  忘了无法找回,不需要时可随时移除。**key 是你的私人财产,别发给任何人。**
-  浏览器对所有本地网页共用同一份本地存储,配置 key 后请勿用同一浏览器打开
-  来路不明的本地 HTML 文件;推荐使用设了消费限额、可随时吊销的 key。
-- 批量导入整份笔记/文档直接建树的通道**已永久移除**。
+- **How to enable**: open **About / Notice**, tick "Enable AI mounting"
+  (the switch is saved with the tree file); first use shows a one-time
+  informed-consent dialog.
+- **Providers & configuration**: two providers are supported, pick one — Kimi
+  (Moonshot, default) or Zhipu GLM; models are the kimi-k3 and glm-5.3
+  series. Custom endpoints are not supported; keys from any other platform
+  will not work. Configuration happens in the browser console — see
+  **About / Notice → Configuration** inside the tool (the key is stored only
+  in your local browser, never in the tree file).
+- **Data flow**: when enabled, what is sent to the Kimi open platform
+  (Moonshot AI) is: the sentence you typed in the mount box, the tree name,
+  the selected node's title and id, and a directory of node titles across the
+  tree (up to 400, so the AI can choose a position); "AI-named save" sends
+  the tree name and the titles of a few recent cards. Card summary bodies and
+  your file itself are never sent. Requests go **directly from your browser**
+  to api.moonshot.cn; this project has no server, no relay, no retention, and
+  cannot see any request. The underlying model and API service are provided
+  by Moonshot; this project is only a local client UI (regulatory role
+  classification per the applicable regulator's interpretation; data
+  retention and training use per that platform's policy). Tree names and node
+  titles travel with requests — **do not put real names, school names, or any
+  personal information in them, let alone sensitive personal information
+  about yourself or others.**
+- **Input prohibitions (read before enabling)**: never input any content from
+  exam materials that have not been officially released (an exam-conduct red
+  line — consequences can reach your grades); do not input the text or
+  fragments of official exam materials (papers, mark schemes, syllabus text,
+  examiner reports, inserts, listening scripts) — violations may cause the AI
+  feature to stop working; do not input excerpts from textbooks, study guides,
+  or other people's notes. Material restricted by platform terms, school
+  policy, or confidentiality — even if you may read it — is not yours to
+  submit to a third-party AI: once sent, it reaches a third-party platform,
+  so check before sending. For assessed work that requires declaring AI use
+  (e.g. coursework), declare per your school's and exam board's rules.
+- **AI output rules**: AI-generated cards carry a source label in the UI, in
+  copies, and in exports, kept distinct from what you wrote. If an AI output
+  turns out to closely match official material, delete the card or
+  regenerate — do not keep it. Commercial use or external distribution of AI
+  output is prohibited. AI content can be wrong; its origin and rights status
+  are not independently verified and it is a study hint only; its use is
+  subject to applicable law and the model provider's terms, and this project
+  makes no claim that AI output is exclusive or free of third-party rights.
+- **Key storage**: the key lives only in your local browser and never enters
+  saved tree files. The optional "cross-device carry" writes a
+  passphrase-encrypted ciphertext (PBKDF2 + AES-GCM) into the tree file; the
+  passphrase (10+ characters) is the only line of defence and cannot be
+  recovered — remove the carry blob whenever you don't need it. **The key is
+  your private property; give it to no one.** Browsers share one local
+  storage across all local pages — after configuring a key, do not open
+  untrusted local HTML files in the same browser; prefer a key with a
+  spending cap that you can revoke at any time.
+- The bulk-import channel (building a tree directly from whole
+  notes/documents) has been **permanently removed**.
 
-## 许可
+## License
 
-三层权利,别混为一谈:
+Three layers of rights — don't conflate them:
 
-- **工具代码与树壳**:MIT(见 LICENSE)——可自由复制、修改、再分发,包括商用;
-  上文一切"请勿传播"均不针对壳代码本身。
-- **你写进树里的笔记内容**:你对其中具有独创性的表达依法享有权利;导入或引用的
-  第三方材料,权利仍归原权利人。"请勿传播"针对的是这些私人笔记内容。
-- **AI 生成内容**(若启用):其可版权性与权利状态不作保证,详见「AI 挂载」节。
+- **The tool code and the tree shell**: MIT (see `LICENSE`) — free to copy,
+  modify, and redistribute, including commercially; none of the
+  "do not distribute" language above applies to the shell code itself.
+- **The note content you write into trees**: you hold the rights to your own
+  original expression; third-party material you import or quote stays with
+  its owners. The "do not distribute" rules target this private note content.
+- **AI-generated content** (if enabled): its copyrightability and rights
+  status are not guaranteed — see the AI mounting section.
 
-生成的树文件由你本地控制与保存。
+Generated tree files are controlled and stored locally by you.
 
-## 发布前处理说明(遇到问题先看这里)
+## What was sanitized before publishing (read this before filing a bug)
 
-- 分发的 `NoteTree.html` 与 `sample/示例知识树.html` 是**刻意做干净的公开版**:
-  不含作者或任何人的真实笔记,不含任何 API key,示例树内容为通用教材级示例;
-  AI 功能默认关闭且入口隐藏,关闭状态下**零网络请求**。
-- 你自己保存出来的 `xxx_vN_日期.html` 会内嵌你的真实笔记(若启用过跨端携带,
-  还含加密 key 密文)——**这些文件不要外发**,能外发的只有本目录这两个文件。
-- "批量导入整份笔记直接建树"的通道已**永久移除**,不是 bug。
-- AI 挂载需要你自备 key 并在控制台配置(刻意保留的门槛),没有图形化填 key
-  入口也不是 bug。
+- The distributed `NoteTree.html` and `sample/sample-tree.html` are
+  **deliberately clean public builds**: no one's real notes, no API keys, and
+  the sample tree contains only generic textbook-level demo content. The AI
+  feature ships disabled with its entry hidden; while disabled the tool makes
+  **zero network requests**.
+- Tree files you save yourself (`xxx_vN_date.html`) embed your real notes
+  (and, if you ever enabled cross-device carry, an encrypted key blob) —
+  **never publish those**; the only shareable files are the two in this
+  repository.
+- The bulk-import channel was **permanently removed** — that's not a bug.
+- AI mounting requires your own key configured via the browser console (a
+  deliberate speed bump); the absence of a graphical key-entry box is not a
+  bug either.
 
-## 联系方式
+## Contact
 
-工具用不起来、或对本项目有**任何**疑虑(权利、内容、隐私,什么都算),
-请立刻联系:**LearningNoteTree@protonmail.com**,一定回应、一定解决。
+If the tool doesn't work for you, or you have **any** concern about this
+project (rights, content, privacy — anything at all), contact me right away:
+**LearningNoteTree@protonmail.com**. I will respond and fix it.
